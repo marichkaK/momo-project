@@ -10,7 +10,15 @@ namespace ConsoleApp1
 
         Triangle(ColorSide[] sides)
         {
-            for(int i = 0; i < sides.Length; i++)
+
+            if (sides[0].getLength() >= sides[1].getLength() + sides[2].getLength()
+                || sides[1].getLength() >= sides[0].getLength() + sides[2].getLength()
+                || sides[2].getLength() >= sides[0].getLength() + sides[1].getLength())
+            {
+                throw new System.ArgumentException("One side is longer than length of two others in sum");
+
+            }
+            for (int i = 0; i < sides.Length; i++)
             {
                 triangle[i] = sides[i];
             }
